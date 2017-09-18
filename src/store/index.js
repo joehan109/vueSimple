@@ -1,11 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'Vuex'
 const state = {
-  userInfo: {
-    name: 'haha',
-    gender: 'male',
-    age: 0
-  },
+  userInfo: { },
   header: {},
   nav: {},
   main: {},
@@ -15,7 +11,8 @@ const state = {
 // mutations 作为命名输出对象
 export const mutations = {
   getUserInfo (state, payload = {key: 'name', value: 'nothing'}) {
-    state.userInfo[payload.key] = payload.value
+    // state.userInfo[payload.key] = payload.value
+    Vue.set(state.userInfo, payload.key, payload.value)
   }
 }
 

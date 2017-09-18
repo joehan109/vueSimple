@@ -1,13 +1,12 @@
 <template>
-  <div id="header">
-    <h2>{{userInfo.name}}{{userInfo.name1}}</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
+  <div id="footer">
+    <h2>{{userInfo.name}}{{userInfo.name1}}age: {{userInfo.age}} 岁</h2>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Header',
+  name: 'Footer',
   data () {
     return {
     }
@@ -39,27 +38,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-#header{
-  height: 40px;
+#footer{
+  position: fixed;
+  bottom:0;
   width: 100%;
-  color: $themeFontColor;
-  background-color: $themeBackgroundColor;
+  color:black;
+  border-top: 1px solid #666;
+  background-color: $backGroundColor;
 }
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-  a {
-    color: #42b983;
-  }
-}
-
 </style>

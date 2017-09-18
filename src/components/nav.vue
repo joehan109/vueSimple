@@ -1,5 +1,5 @@
 <template>
-  <div id="header">
+  <div id="nav">
     <h2>{{userInfo.name}}{{userInfo.name1}}</h2>
     <h2>age: {{userInfo.age}} 岁</h2>
   </div>
@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'Header',
+  name: 'nav',
   data () {
     return {
     }
@@ -17,31 +17,24 @@ export default {
       return this.$store.state.userInfo
     }
   },
-  created () {
-    this.$http.get('/api/a.json').then(response => {
-      console.log(response)
-      this.$store.commit({
-        type: 'getUserInfo',
-        key: 'name1',
-        value: response.data.aa
-      })
-      this.$store.commit({
-        type: 'getUserInfo',
-        key: 'name1',
-        value: response.data.aa
-      })
-    }, e => {
-      console.log(e)
-    })
+  mounted () {
+    const top = this.$el.offsetTop
+    window.onscroll = this.$lodash.throttle((e) => {
+      if (e.target.body.scrollTop >= top) {
+        this.$el.style.top = 0
+      } else {
+        this.$el.style.top = (top - e.target.body.scrollTop) + 'px'
+      }
+    },100).bind(this);
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-#header{
-  height: 40px;
-  width: 100%;
+#nav{
+  height: 100%;
+  width: 100px;
   color: $themeFontColor;
   background-color: $themeBackgroundColor;
 }

@@ -13,6 +13,62 @@
         <td>{{item.date}}</td><td>{{item.weather}}</td>
       </tr>
     </table>
+    <table>
+      <th><td>城市</td><td>{{myData.city}}</td></th>
+      <th><td>pm2.5</td><td>{{myData.pm25}}</td></th>
+      <tr v-for="item in myData.weather">
+        <td>{{item.date}}</td><td>{{item.weather}}</td>
+      </tr>
+    </table>
+    <table>
+      <th><td>城市</td><td>{{myData.city}}</td></th>
+      <th><td>pm2.5</td><td>{{myData.pm25}}</td></th>
+      <tr v-for="item in myData.weather">
+        <td>{{item.date}}</td><td>{{item.weather}}</td>
+      </tr>
+    </table>
+    <table>
+      <th><td>城市</td><td>{{myData.city}}</td></th>
+      <th><td>pm2.5</td><td>{{myData.pm25}}</td></th>
+      <tr v-for="item in myData.weather">
+        <td>{{item.date}}</td><td>{{item.weather}}</td>
+      </tr>
+    </table>
+    <table>
+      <th><td>城市</td><td>{{myData.city}}</td></th>
+      <th><td>pm2.5</td><td>{{myData.pm25}}</td></th>
+      <tr v-for="item in myData.weather">
+        <td>{{item.date}}</td><td>{{item.weather}}</td>
+      </tr>
+    </table>
+    <table>
+      <th><td>城市</td><td>{{myData.city}}</td></th>
+      <th><td>pm2.5</td><td>{{myData.pm25}}</td></th>
+      <tr v-for="item in myData.weather">
+        <td>{{item.date}}</td><td>{{item.weather}}</td>
+      </tr>
+    </table>
+    <table>
+      <th><td>城市</td><td>{{myData.city}}</td></th>
+      <th><td>pm2.5</td><td>{{myData.pm25}}</td></th>
+      <tr v-for="item in myData.weather">
+        <td>{{item.date}}</td><td>{{item.weather}}</td>
+      </tr>
+    </table>
+    <table>
+      <th><td>城市</td><td>{{myData.city}}</td></th>
+      <th><td>pm2.5</td><td>{{myData.pm25}}</td></th>
+      <tr v-for="item in myData.weather">
+        <td>{{item.date}}</td><td>{{item.weather}}</td>
+      </tr>
+    </table>
+    <table>
+      <th><td>城市</td><td>{{myData.city}}</td></th>
+      <th><td>pm2.5</td><td>{{myData.pm25}}</td></th>
+      <tr v-for="item in myData.weather">
+        <td>{{item.date}}</td><td>{{item.weather}}</td>
+      </tr>
+    </table>
     {{myData.pm25}}
   </div>
 </template>
