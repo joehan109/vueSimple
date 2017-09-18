@@ -2,6 +2,55 @@
   <div id="nav">
     <h2>{{userInfo.name}}{{userInfo.name1}}</h2>
     <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁4</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2>age: {{userInfo.age}} 岁1</h2>
   </div>
 </template>
 
@@ -33,10 +82,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 #nav{
-  height: 100%;
+  @include qCalc(height, "100% - " + $footerHeight);
   width: 100px;
   color: $themeFontColor;
   background-color: $themeBackgroundColor;
+  overflow-y: scroll;
+  margin-bottom: $footerHeight;
 }
 h1, h2 {
   font-weight: normal;

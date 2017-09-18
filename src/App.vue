@@ -36,6 +36,7 @@ export default {
   display: flex;
   flex-direction: column;
   #main{
+    margin-bottom: $footerHeight;
     flex-direction: column;
     display: flex;
     #nav {
@@ -44,7 +45,7 @@ export default {
     #content{
       display: flex;
       flex:1;
-      margin: 0 0 30px 100px;
+      margin-left:100px;
       flex-direction: column;
       #mainView{
         flex: 1;
@@ -52,7 +53,7 @@ export default {
     }
   }
   #footer{
-    height: 30px;
+    height: $footerHeight;
   }
 }
 </style>
