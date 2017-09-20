@@ -3,9 +3,7 @@
     <qHeader></qHeader>
     <section id="main" ref="main">
       <qNav></qNav>
-      <section id="content">
-        <router-view id="mainView"></router-view>
-      </section>
+      <router-view id="content" ref="content"></router-view>
     </section>
     <qFooter ref="footer"></qFooter>
   </div>
@@ -44,12 +42,9 @@ export default {
     }
     #content{
       display: flex;
-      flex:1;
-      margin-left:100px;
+      flex: 1;
+      margin-left: $navWidth;
       flex-direction: column;
-      #mainView{
-        flex: 1;
-      }
     }
   }
   #footer{
