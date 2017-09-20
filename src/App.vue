@@ -7,7 +7,7 @@
         <router-view id="mainView"></router-view>
       </section>
     </section>
-    <qFooter></qFooter>
+    <qFooter ref="footer"></qFooter>
   </div>
 </template>
 
@@ -37,10 +37,10 @@ export default {
   flex-direction: column;
   #main{
     margin-bottom: $footerHeight;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: stretch;
     display: flex;
     #nav {
-      position: fixed;
     }
     #content{
       display: flex;
