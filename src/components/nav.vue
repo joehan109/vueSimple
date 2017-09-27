@@ -1,6 +1,6 @@
 <template>
   <div id="nav" :class="className">
-    <h2>{{userInfo.name}}{{userInfo.name1}}</h2>
+    <h2>{{userInfo.name}}</h2>
     <h2>age: {{userInfo.age}} 岁</h2>
     <h2>age: {{userInfo.age}} 岁</h2>
     <h2>age: {{userInfo.age}} 岁</h2>
@@ -55,23 +55,38 @@
 </template>
 
 <script>
+import {mapState,mapActions} from 'Vuex'
 export default {
   name: 'nav',
+  props: {
+    isSticky: {type:Boolean,default:true},
+    fixedTop: {type:String,default:"0"},
+    fixedLeft: {type:String,default:"0"},
+    navWidth: {type:String,default:"100px"}
+  },
   data () {
     return {
       className: 'nav'
     }
   },
-  computed: {
-    userInfo () {
-      return this.$store.state.userInfo
-    }
+  computed: mapState({
+    userInfo:'userInfo'
+  }),
+  methods:mapActions({
+    increment: 'increment'
+  }),
+  created () {
+    this.increment({
+      key:'age',
+      value:'33'
+    })
   },
   mounted () {
     const top = this.$el.offsetTop
     const footerHeight = parseInt(window.getComputedStyle(this.$parent.$refs['footer'].$el).height)
 
     window.onscroll = this.$lodash.throttle((e) => {
+      console.log(e)
       const scrollTop = window.pageYOffset
           || document.documentElement.scrollTop
           || document.body.scrollTop
@@ -90,7 +105,6 @@ export default {
         const contentDOM = this.$parent.$refs['content'].$el;
         if (window.getComputedStyle(contentDOM).position !== 'fixed') {
           contentDOM.style.marginLeft = 0;
-
           changedMainWidth = true;
         }
       }
@@ -101,17 +115,19 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss">
+<style lang="scss" scoped>
 $headerAndFooter : $footerHeight + $headerHeight;
 .nav{
   @include qCalc(height, "100% - " + $headerAndFooter);
   width: $navWidth;
+
   color: $themeFontColor;
   background-color: $themeBackgroundColor;
   overflow-y: scroll;
   // 开始设置fixed防止在nav上滚动触发全局滚动
   position: fixed;
   top: $headerHeight;
+  border-right: 1px solid $themeBorderColor;
 }
 .stickyTop{
   top: 0;

@@ -10,7 +10,11 @@ export default new Router({
     {
       path: '/',
       name: 'Hello',
-      component: Hello,
+      component(resolve) {
+        require.ensure(['@/components/Hello'], () => {
+            resolve(require('@/components/Hello'))
+        })
+      },
       children: []
     }, {
       path: '/index',

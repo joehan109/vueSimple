@@ -7,7 +7,7 @@ module.exports = {
   }),
   openMock: true,
   proxyTable: {
-    // proxy all requests starting with /api to jsonplaceholder
+    // proxy all requests starting with /api to /mock
     '/api/**': {
       target: 'http://localhost:8080',
       changeOrigin: true,

@@ -1,5 +1,11 @@
 <template>
   <div id="header">
+    <div class="logo">
+      <img :src="logoSrc" />
+    </div>
+    <ul class="tabs">
+      <li v-for="tab in tabs"></li>
+    </ul>
     <h2>{{userInfo.name}}{{userInfo.name1}}</h2>
     <h2>age: {{userInfo.age}} 岁</h2>
   </div>
@@ -10,6 +16,8 @@ export default {
   name: 'Header',
   data () {
     return {
+      logoSrc: '//source.qunarzz.com/common/hf/logo.png',
+      tabs:[]
     }
   },
   computed: {
@@ -18,21 +26,7 @@ export default {
     }
   },
   created () {
-    this.$http.get('/api/a.json').then(response => {
-      console.log(response)
-      this.$store.commit({
-        type: 'getUserInfo',
-        key: 'name1',
-        value: response.data.aa
-      })
-      this.$store.commit({
-        type: 'getUserInfo',
-        key: 'name1',
-        value: response.data.aa
-      })
-    }, e => {
-      console.log(e)
-    })
+      this.$store.commit('getUserInfo')
   }
 }
 </script>
@@ -44,22 +38,17 @@ export default {
   width: 100%;
   color: $themeFontColor;
   background-color: $themeBackgroundColor;
-}
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-  a {
-    color: #42b983;
+  border-bottom: 1px solid $themeBorderColor;
+  display: flex;
+  flex-direction: row;
+  .logo{
+    height: 100%;
+    width: $navWidth;
+    overflow: hidden;
+    img{
+      width: 100%;
+      height: 100%;
+    }
   }
 }
-
 </style>

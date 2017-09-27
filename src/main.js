@@ -3,9 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import ElementUI from 'element-ui'
+require('./utils')
 import router from './router'
 import store from './store'
-require('./utils')
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 

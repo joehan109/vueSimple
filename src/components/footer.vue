@@ -1,10 +1,12 @@
 <template>
   <div id="footer">
-    <h2>{{userInfo.name}}{{userInfo.name1}}age: {{userInfo.age}} 岁</h2>
+    <h2> {{info.copyRight}} age: {{info.age}} 岁</h2>
   </div>
 </template>
 
 <script>
+import {mapState,mapActions} from 'Vuex'
+
 export default {
   name: 'Footer',
   data () {
@@ -12,25 +14,18 @@ export default {
     }
   },
   computed: {
-    userInfo () {
-      return this.$store.state.userInfo
-    }
+    ...mapState({
+      info: state => state.footer.footer
+    })
   },
+  methods:mapActions({
+    increment: 'footer/increment'
+  }),
   created () {
-    this.$http.get('/api/a.json').then(response => {
-      console.log(response)
-      this.$store.commit({
-        type: 'getUserInfo',
-        key: 'name1',
-        value: response.data.aa
-      })
-      this.$store.commit({
-        type: 'getUserInfo',
-        key: 'name1',
-        value: response.data.aa
-      })
-    }, e => {
-      console.log(e)
+    this.increment({
+      type: 'getUserInfo',
+      key: 'age',
+      value: '22'
     })
   }
 }
@@ -43,7 +38,7 @@ export default {
   bottom:0;
   width: 100%;
   color:black;
-  border-top: 1px solid #666;
+  border-top: 1px solid $themeBorderColor;
   background-color: $backGroundColor;
 }
 </style>
