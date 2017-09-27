@@ -1,5 +1,5 @@
 export default {
   userInfo: { },
-  nav: {},
+  nav: [],
   main: {}
 }

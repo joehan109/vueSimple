@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import ElementUI from 'element-ui'
 require('./utils')
+require('./components/base')
 import router from './router'
 import store from './store'
 Vue.use(ElementUI)

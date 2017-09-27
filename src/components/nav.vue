@@ -1,56 +1,11 @@
 <template>
   <div id="nav" :class="className">
-    <h2>{{userInfo.name}}</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁4</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
-    <h2>age: {{userInfo.age}} 岁1</h2>
+    <el-tree
+      :data="data"
+      :props="defaultProps"
+      accordion
+      @node-click="handleNodeClick">
+    </el-tree>
   </div>
 </template>
 
@@ -66,20 +21,32 @@ export default {
   },
   data () {
     return {
-      className: 'nav'
+      className: 'nav',
+      "defaultProps": {
+        "children": "children",
+        "label": "label"
+      }
     }
   },
-  computed: mapState({
-    userInfo:'userInfo'
-  }),
-  methods:mapActions({
-    increment: 'increment'
-  }),
+  computed: {...mapState({
+    userInfo:'userInfo',
+    data:'nav'
+  })},
+  methods:{
+    handleNodeClick(data) {
+        console.log(data);
+      },
+    ...mapActions({
+      increment: 'increment',
+      getNav: 'getNav'
+    })
+  },
   created () {
     this.increment({
       key:'age',
       value:'33'
-    })
+    });
+    this.getNav();
   },
   mounted () {
     const top = this.$el.offsetTop
@@ -128,6 +95,11 @@ $headerAndFooter : $footerHeight + $headerHeight;
   position: fixed;
   top: $headerHeight;
   border-right: 1px solid $themeBorderColor;
+  text-align: left;
+  .el-tree{
+    background-color: $themeBackgroundColor;
+    border: 0 none;
+  }
 }
 .stickyTop{
   top: 0;

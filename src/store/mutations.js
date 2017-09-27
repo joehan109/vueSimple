@@ -7,5 +7,8 @@ export default  {
     state.userInfo = {...state.userInfo, [payload.key]:payload.value}
     // Vue.set(state.userInfo, payload.key, payload.value)
     console.log(state.userInfo)
+  },
+  getNav (state, payload) {
+    state.nav = payload
   }
 }

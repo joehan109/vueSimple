@@ -13,6 +13,8 @@
 import qHeader from '@/components/Header'
 import qNav from '@/components/nav'
 import qFooter from '@/components/footer'
+import basebutton from '@/components/base/button.vue'
+
 export default {
   name: 'app',
   components: {
@@ -25,6 +27,8 @@ export default {
 
 <style lang="scss">
 @import './assets/scss/reset.css';
+@import url('http://common.qunarzz.com/lib/prd/element-ui/1.3.7/theme-default/index.css');
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -45,6 +49,8 @@ export default {
       display: flex;
       flex: 1;
       margin-left: $navWidth;
+      padding:20px;
+      overflow: hidden;
       flex-direction: column;
     }
   }

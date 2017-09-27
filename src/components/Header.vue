@@ -6,8 +6,7 @@
     <ul class="tabs">
       <li v-for="tab in tabs"></li>
     </ul>
-    <h2>{{userInfo.name}}{{userInfo.name1}}</h2>
-    <h2>age: {{userInfo.age}} 岁</h2>
+    <h2 class="user">age: {{userInfo.age}} 岁</h2>
   </div>
 </template>
 
@@ -49,6 +48,12 @@ export default {
       width: 100%;
       height: 100%;
     }
+  }
+  .tabs{
+    flex:1
+  }
+  .user{
+    margin: 10px
   }
 }
 </style>
