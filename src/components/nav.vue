@@ -1,7 +1,7 @@
 <template>
   <div id="nav" :class="className">
     <el-tree
-      :data="data"
+      :data="nav"
       :props="defaultProps"
       accordion
       @node-click="handleNodeClick">
@@ -28,10 +28,7 @@ export default {
       }
     }
   },
-  computed: {...mapState({
-    userInfo:'userInfo',
-    data:'nav'
-  })},
+  computed: {...mapState(['userInfo','nav'])},
   methods:{
     handleNodeClick(data) {
         console.log(data);
@@ -53,7 +50,6 @@ export default {
     const footerHeight = parseInt(window.getComputedStyle(this.$parent.$refs['footer'].$el).height)
 
     window.onscroll = this.$lodash.throttle((e) => {
-      console.log(e)
       const scrollTop = window.pageYOffset
           || document.documentElement.scrollTop
           || document.body.scrollTop
